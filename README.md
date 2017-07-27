@@ -13,8 +13,8 @@ npm run dev
 
 # build for production with minification
 npm run build
-
-# Main Technology
+```
+## Main Technology
 
 * 客户端：vue2.0、vuex<br>
 
