@@ -1,6 +1,6 @@
 # chart-app-koa2
 
-    简易的聊天app，基于vue2.0，mongoose，koa2，socket.io，muse-ui等技术。
+>简易的聊天app，基于vue2.0，mongoose，koa2，socket.io，muse-ui等技术。
 
 ## Build Setup
 
