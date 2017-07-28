@@ -3,12 +3,12 @@ require('./server/config/db.js')
 
 var config = require('./server/config/config.js')
 
-const app = new (require('koa'))(),  
-json = require('koa-json'), 
-logger = require('koa-logger'), 
-resource = require('koa-static'),
-path = require('path'),
-router = new (require('koa-router'))()
+const app = new (require('koa'))(),
+    json = require('koa-json'),
+    logger = require('koa-logger'),
+    resource = require('koa-static'),
+    path = require('path'),
+    router = new (require('koa-router'))()
 
 app.use(require('koa-bodyparser')());
 app.use(json());
@@ -69,15 +69,12 @@ io.on('connection', function (socket) {
 
         io.to(mess.roomid).emit('message', mess)  //向所有客户端广播发布的消息
         console.log(obj.username + '对房' + mess.roomid + '说：' + mess.msg)
-        if (obj.img === '') {
-            var message = new Message(mess)
-            message.save(function (err, mess) { //将发送过来的消息进行储存
-                if (err) {
-                    console.log(err)
-                }
-                console.log(mess)
-            })
-        }
+        var message = new Message(mess)
+        message.save(function (err, mess) { //将发送过来的消息进行储存
+            if (err) {
+                console.log(err)
+            }
+        })
     })
 
 

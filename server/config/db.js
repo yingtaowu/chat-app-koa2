@@ -15,8 +15,6 @@ app.use(session({
   saveUninitialized: true
 }))
 
-// require('../routes')(app)
-
 module.exports = function(app){
   var env = process.env.NODE_ENV || 'development'
   if ('development' === app.get('env')) {

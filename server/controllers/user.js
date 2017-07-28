@@ -10,7 +10,6 @@ const Signup = async (ctx) => {
         name: ctx.request.body.name,
         password: ctx.request.body.password,
         src: ctx.request.body.src
-        // token: createToken(this.username) //创建token并存入数据库
     });
 
     let userInfo = await findUser(user.name);
@@ -39,7 +38,6 @@ const Signup = async (ctx) => {
 
 //登录
 const Signin = async (ctx) => {
-    console.log("ctx00--", ctx);
     let username = ctx.request.body.name
     let password = ctx.request.body.password
     let userInfo = await findUser(username);
@@ -78,7 +76,6 @@ const GetMessage = async (ctx) => {
     let id = ctx.query.roomid;
 
     let message = await findMessage(id);
-    console.log("message---", message);
 
     ctx.status = 200;
     ctx.body = {
@@ -100,17 +97,7 @@ const ChatToRobot = async (ctx) => {
 
 //发送图片
 const SendImg = async (ctx) => {
-    let sendData = await sendImgProcess(ctx.req)
-    var message = new Message(sendData)
-
-    await new Promise((resolve, reject) => {
-        message.save(function (err, sendData) {
-            if (err) {
-                reject(err);
-            }
-            resolve()
-        })
-    })
+    await sendImgProcess(ctx.req)
 
     ctx.status = 200;
     ctx.body = {
@@ -191,9 +178,7 @@ const sendImgProcess = (req) => {
 
         // 上传完成后处理
         form.parse(req, function (err, fields, files) {
-            console.log("fields--", fields)
             var filesTmp = JSON.stringify(files, null, 2)
-            console.log("filesTmp--", filesTmp)
             if (err) {
                 reject(err);
             } else {
@@ -208,15 +193,7 @@ const sendImgProcess = (req) => {
                     if (err) {
                         reject(err);
                     } else {
-
-                        var mess = {
-                            username: fields.username,
-                            src: fields.src,
-                            img: dstPath,
-                            roomid: fields.roomid
-                        }
-
-                        resolve(mess)
+                        resolve()
                     }
                 })
             }
