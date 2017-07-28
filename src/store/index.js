@@ -76,7 +76,7 @@ const store = new Vuex.Store({
             state.chatdetails.infos.push(data)
         },
         setrobotmsg(state, data) {
-            state.robotmsg.push(data)
+            data == 'clean' ? state.robotmsg = [state.robotmsg[0]] : state.robotmsg.push(data)
         },
         changechattoggle(state) {
             state.chattoggle = !state.chattoggle
@@ -104,6 +104,7 @@ const store = new Vuex.Store({
                 .then(({ data }) => {
                     if (data.success) {
                         vueRouter.push('index');
+                        commit('setrobotmsg', 'clean')
                         commit('setusername', data.data.name)
                         commit('setusersrc', data.data.src)
                     }
@@ -117,7 +118,6 @@ const store = new Vuex.Store({
         getmsghistory({commit}, data) {
             api.getMsgHistory(data)
                 .then(({data}) => {
-                    console.log("msghistory--",data.data);
                     if (data.success) {
                         commit('setmsghistory', data.data)
                     }
@@ -148,10 +148,8 @@ const store = new Vuex.Store({
         },
 
         uploadimg({commit}, data) {
-            console.log("data0---",data);
             api.sendImg(data)
                 .then(({data}) => {
-                    console.log("data--------------", data);
                     if (data.success) {
                         console.log('上传成功')
                     }
