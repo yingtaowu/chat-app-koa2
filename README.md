@@ -1,6 +1,6 @@
-# vue-chart
+# chart-app-koa2
 
-> A Vue.js project
+>简易的聊天app，基于vue2.0，mongoose，koa2，socket.io，muse-ui等技术。
 
 ## Build Setup
 
@@ -13,9 +13,24 @@ npm run dev
 
 # build for production with minification
 npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
+## Main Technology
 
+* 客户端：vue2.0、vuex<br>
+
+* 服务端：nodejs、nodemon（代码热更新）、koa2 （http://koa.rednode.cn/ ）<br>
+
+* 数据库：mongodb<br>
+
+* UI框架：muse-ui<br>
+
+  官网：http://www.muse-ui.org/#/index<br>  
+   
+  图标库：https://material.io/icons/ <br>
+   
+* 通讯：socket.io<br>
+
+  官网：https://socket.io/docs/
+  
+  
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
