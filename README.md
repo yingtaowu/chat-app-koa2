@@ -18,7 +18,7 @@ npm run build
 
 * 客户端：vue2.0、vuex<br>
 
-* 服务端：nodejs、koa2 （http://koa.rednode.cn/ ）<br>
+* 服务端：nodejs、nodemon（代码热更新）、koa2 （http://koa.rednode.cn/ ）<br>
 
 * 数据库：mongodb<br>
 
